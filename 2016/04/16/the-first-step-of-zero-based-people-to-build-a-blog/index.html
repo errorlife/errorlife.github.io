@@ -1,0 +1,692 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Blog,Hexo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="0x01 前记看到网上很多大神都有自己的博客，可以有一群志同道合的人在上面mark和讨论技术问题，心中甚是羡慕，也以为拥有自己的博客(此处指的是自己的博客而不是一些网站的二级域名【csdn,github,博客园】)是一个很难的事。
+直到有一天我接触了WordPress，然而那个时候并没有去动手，一段时间过后，在群里看到有人说Hexo多么的牛叉，也看了Coande的博客，刚好有一篇文章，就开始动手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小白搭博客三部曲之一:Hexo+Git+Node.js">
+<meta property="og:url" content="http://steffan.cn/2016/04/16/the-first-step-of-zero-based-people-to-build-a-blog/index.html">
+<meta property="og:site_name" content="Steffan's Blog">
+<meta property="og:description" content="0x01 前记看到网上很多大神都有自己的博客，可以有一群志同道合的人在上面mark和讨论技术问题，心中甚是羡慕，也以为拥有自己的博客(此处指的是自己的博客而不是一些网站的二级域名【csdn,github,博客园】)是一个很难的事。
+直到有一天我接触了WordPress，然而那个时候并没有去动手，一段时间过后，在群里看到有人说Hexo多么的牛叉，也看了Coande的博客，刚好有一篇文章，就开始动手">
+<meta property="og:image" content="http://steffan.cn/images/0416/GitHub_Hexo.png">
+<meta property="og:image" content="http://steffan.cn/images/0416/hexo.jpg">
+<meta property="og:image" content="http://steffan.cn/images/0416/hexo_default_blog_1.png">
+<meta property="og:image" content="http://steffan.cn/images/0416/hexo_default_blog_2.png">
+<meta property="og:updated_time" content="2016-06-08T09:22:06.261Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小白搭博客三部曲之一:Hexo+Git+Node.js">
+<meta name="twitter:description" content="0x01 前记看到网上很多大神都有自己的博客，可以有一群志同道合的人在上面mark和讨论技术问题，心中甚是羡慕，也以为拥有自己的博客(此处指的是自己的博客而不是一些网站的二级域名【csdn,github,博客园】)是一个很难的事。
+直到有一天我接触了WordPress，然而那个时候并没有去动手，一段时间过后，在群里看到有人说Hexo多么的牛叉，也看了Coande的博客，刚好有一篇文章，就开始动手">
+<meta name="twitter:image" content="http://steffan.cn/images/0416/GitHub_Hexo.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'steffan'
+    }
+  };
+</script>
+
+  <title> 小白搭博客三部曲之一:Hexo+Git+Node.js | Steffan's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=222&web_id=222" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Steffan's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Welcome to my blog!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                小白搭博客三部曲之一:Hexo+Git+Node.js
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-16T00:29:18+08:00" content="2016-04-16">
+              2016-04-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/course/" itemprop="url" rel="index">
+                    <span itemprop="name">course</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/16/the-first-step-of-zero-based-people-to-build-a-blog/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/16/the-first-step-of-zero-based-people-to-build-a-blog/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="0x01-前记"><a href="#0x01-前记" class="headerlink" title="0x01 前记"></a>0x01 前记</h2><p>看到网上很多大神都有自己的博客，可以有一群志同道合的人在上面mark和讨论技术问题，心中甚是羡慕，也以为拥有自己的博客(此处指的是自己的博客而不是一些网站的二级域名【csdn,github,博客园】)是一个很难的事。</p>
+<p>直到有一天我接触了WordPress，然而那个时候并没有去动手，一段时间过后，在群里看到有人说Hexo多么的牛叉，也看了<a href="http://i.e12e.com/" target="_blank" rel="external">Coande</a>的博客，刚好有一篇文章，就开始动手了。过程中，很多问题都是他帮忙解决的，在此感谢！</p>
+<p>废话不多说。进入主题。<br><img src="/images/0416/GitHub_Hexo.png" alt="Hexo"></p>
+<a id="more"></a>
+<h2 id="0x02-Hexo"><a href="#0x02-Hexo" class="headerlink" title="0x02 Hexo"></a>0x02 Hexo</h2><p><a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>,一位台湾的大学生用Node.js写的博客程序，很多人都说比WordPress更便于管理，我没有用过，所以不予置评。<br><img src="/images/0416/hexo.jpg" alt="Hexo"></p>
+<h3 id="环境安装的准备"><a href="#环境安装的准备" class="headerlink" title="环境安装的准备"></a>环境安装的准备</h3><p>这里以Window为例子。<br>以下网盘资源为<a href="http://i.e12e.com/" target="_blank" rel="external">Coande</a>的百度云云盘友情赞助！</p>
+<p><strong>安装Git</strong><br>Git：主要用于上传博客页面到github和命令操作<br><a href="http://pan.baidu.com/s/1kUo8GiN" target="_blank" rel="external">32位系统点此下载</a><br><a href="http://pan.baidu.com/s/1pKs4sLP" target="_blank" rel="external">64位系统点此下载</a><br>安装的时候，一直next即可。</p>
+<p><strong>安装Node.js</strong><br>Node.js：Hexo的运行环境<br><a href="http://pan.baidu.com/s/1jHyKlka" target="_blank" rel="external">32位系统点此下载</a><br><a href="http://pan.baidu.com/s/1gex4xof" target="_blank" rel="external">64位系统点此下载</a><br>也是一直next即可。</p>
+<p><strong>安装过程</strong><br>我在安装Node.js的时候就报错了，错误代码：25033<br>解决方案是：<br><strong>1、右键以管理员模式运行</strong><br><strong>2、如果你像我一样，注册表玩坏了，第一步行不通，那么请进入cmd的时候用管理员模式进入，找到Node.js的安装包(.msi)的路径，输入</strong><br><figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msiexec node-v4.<span class="number">3</span>.<span class="number">1</span>-x64.msi</div></pre></td></tr></table></figure></p>
+<p><strong>等待安装即可，接下来检查是否安装成功</strong><br><figure class="highlight bat"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure></p>
+<p><strong>成功查出版本号即代表安装成功</strong></p>
+<p>Git的安装一般都没有太大问题，若有，请自行搜索错误代码或者在此博客下评论，请注意是否有以管理员身份运行。</p>
+<p><strong>安装Hexo</strong></p>
+<p>打开安装Git后的产生的GitBash，输入(也可以复制粘贴，右键点击标题栏即可弹出选项菜单)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure></p>
+<p>npm即NodeJS包管理和分发工具<br>命令中加<strong>-g</strong>，采用的是全局安装(global)，模块将被下载安装到【全局目录】中，相比于本地安装(local)，既方便管理、结构清晰还可以重复利用。<br>回车后，会自动生成本地博客，需要点时间，耐心等待。</p>
+<p>然后输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init myblog</div></pre></td></tr></table></figure></p>
+<p>初始化博客文件到myblog文件夹，其中myblog可以根据自己喜好进行修改。<br>接着输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd myblog</div></pre></td></tr></table></figure></p>
+<p>进入myblog目录，以下所有操作都需要在该目录下完成。下次打开Git bash进行操作也需要进入这个目录。<br>再接着输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>进行最后的安装操作。</p>
+<p><strong>不用Github管理的可以忽略这一步</strong></p>
+<p>继续输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+<p>来安装将hexo博客向github上传的模块。<br>最好再输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-server --save</div></pre></td></tr></table></figure></p>
+<p>来安装hexo服务器模块，用于本地预览博客<br>到这里就基本在本地完成博客的搭建了。可以输入如下命令来看下hexo博客的初始效果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure></p>
+<p>hexo s 和 hexo server的效果是一样的，一般都使用前者，省事=。=</p>
+<p>这条命令启动了一个本地的服务器，有点类似于tomcat，nginx，所以请不要关闭Git bash窗口后，然后问为什么打不开网址。</p>
+<p>打开浏览器，输入网址<a href="http://127.0.0.1:4000" target="_blank" rel="external">http://127.0.0.1:4000</a> 或者 <a href="http://locathost:4000进行访问，4000是默认端口，一般不建议修改。" target="_blank" rel="external">http://locathost:4000进行访问，4000是默认端口，一般不建议修改。</a></p>
+<p>有一篇Hexo自动生成的Hello World博文，效果如下：<br><img src="/images/0416/hexo_default_blog_1.png" alt="hexo_default_blog_1"><br><img src="/images/0416/hexo_default_blog_2.png" alt="hexo_default_blog_2"></p>
+<h3 id="小白搭博客三部曲之二预告片："><a href="#小白搭博客三部曲之二预告片：" class="headerlink" title="小白搭博客三部曲之二预告片："></a>小白搭博客三部曲之二预告片：</h3><blockquote>
+<ul>
+<li>如何部署本地博客到github</li>
+<li>如何自定义适合自己的主题(基于某款主题)</li>
+<li>如何更新博文</li>
+</ul>
+</blockquote>
+<h2 id="敬请期待！！！"><a href="#敬请期待！！！" class="headerlink" title="敬请期待！！！"></a><strong>敬请期待！！！</strong></h2><p>PS:本系列博文参考网络素材、<a href="http://i.e12e.com/2016/02/17/github%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">Coande的博文</a>.<br>                                                                                                By S.F</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Blog/" rel="tag">#Blog</a>
+          
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/05/hello/" rel="next" title="Hello">
+                <i class="fa fa-chevron-left"></i> Hello
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/08/the-second-step-of-zero-based-people-to-build-a-blog/" rel="prev" title="小白搭博客三部曲之二：部署github+自定义主题+更新博文">
+                小白搭博客三部曲之二：部署github+自定义主题+更新博文 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/16/the-first-step-of-zero-based-people-to-build-a-blog/"
+           data-title="小白搭博客三部曲之一:Hexo+Git+Node.js" data-url="http://steffan.cn/2016/04/16/the-first-step-of-zero-based-people-to-build-a-blog/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Steffan" />
+          <p class="site-author-name" itemprop="name">Steffan</p>
+          <p class="site-description motion-element" itemprop="description">我在。你不在。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/errorlife" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/life-error" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">Links</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://i.e12e.com/" target="_blank">Coande</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-前记"><span class="nav-number">1.</span> <span class="nav-text">0x01 前记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-Hexo"><span class="nav-number">2.</span> <span class="nav-text">0x02 Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境安装的准备"><span class="nav-number">2.1.</span> <span class="nav-text">环境安装的准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小白搭博客三部曲之二预告片："><span class="nav-number">2.2.</span> <span class="nav-text">小白搭博客三部曲之二预告片：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#敬请期待！！！"><span class="nav-number">3.</span> <span class="nav-text">敬请期待！！！</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Steffan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"steffan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
