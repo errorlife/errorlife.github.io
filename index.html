@@ -245,6 +245,256 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/10/how-to-build-a-Tomcat-image-with-Dockerfile-and-deploy-war/" itemprop="url">
+                  如何使用Dockerfile构建Tomcat镜像并部署war
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-10T11:53:15+08:00" content="2017-02-10">
+              2017-02-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/course/" itemprop="url" rel="index">
+                    <span itemprop="name">course</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/10/how-to-build-a-Tomcat-image-with-Dockerfile-and-deploy-war/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/10/how-to-build-a-Tomcat-image-with-Dockerfile-and-deploy-war/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <hr>
+<h2 id="0x01-前记"><a href="#0x01-前记" class="headerlink" title="0x01 前记"></a>0x01 前记</h2><h3 id="国际惯例来张图-D"><a href="#国际惯例来张图-D" class="headerlink" title="国际惯例来张图:D"></a>国际惯例来张图:D</h3><p><img src="/images/170210/sky.png" alt="现在的我"></p>
+<h3 id="我们都知道Docker构建一个镜像有两种方式："><a href="#我们都知道Docker构建一个镜像有两种方式：" class="headerlink" title="我们都知道Docker构建一个镜像有两种方式："></a>我们都知道Docker构建一个镜像有两种方式：</h3><pre><code>使用`docker commit`命令
+使用`Dockerfile`文件和`docker build`命令
+</code></pre><h3 id="那么这两种方式有何区别呢？"><a href="#那么这两种方式有何区别呢？" class="headerlink" title="那么这两种方式有何区别呢？"></a>那么这两种方式有何区别呢？</h3><pre><code>相同点：底层实现上一样，最终都是通过`docker commit`生成镜像；
+不同点：通过`Dockerfile`生成镜像，能够实现镜像文档化，使得镜像可读且易维护；
+通过`docker build`生成镜像则相反，不能实现镜像文档化。
+</code></pre><h3 id="所以这篇文章采用Dockerfile来构建-D"><a href="#所以这篇文章采用Dockerfile来构建-D" class="headerlink" title="所以这篇文章采用Dockerfile来构建 :D"></a>所以这篇文章采用Dockerfile来构建 :D</h3>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/10/how-to-build-a-Tomcat-image-with-Dockerfile-and-deploy-war/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/05/the-third-step-of-zero-based-people-to-build-a-blog.md/" itemprop="url">
+                  小白搭博客三部曲之三：使用MarkDown写博客+域名绑定Github
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-05T22:00:06+08:00" content="2017-01-05">
+              2017-01-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/course/" itemprop="url" rel="index">
+                    <span itemprop="name">course</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/05/the-third-step-of-zero-based-people-to-build-a-blog.md/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/05/the-third-step-of-zero-based-people-to-build-a-blog.md/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <hr>
+<h2 id="0x01-前记"><a href="#0x01-前记" class="headerlink" title="0x01 前记"></a>0x01 前记</h2><p>atool的占位图竟然挂了，disappointed<br><img src="http://fakeimg.pl/500x300/0288D1/fff/?text=Lazy&amp;font=lobster" alt="fakeimg.pl"><br>废话不多说，更新来一波。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/05/the-third-step-of-zero-based-people-to-build-a-blog.md/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/18/the-third-step-of-zero-based-people-to-build-a-blog/" itemprop="url">
                   小白搭博客三部曲之三：使用MarkDown写博客+域名绑定Github
                 </a>
@@ -863,7 +1113,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -880,7 +1130,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -947,8 +1197,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
