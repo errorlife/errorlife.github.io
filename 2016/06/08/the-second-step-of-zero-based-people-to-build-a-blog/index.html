@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://steffan.cn/images/0608/2_10_blog.png">
 <meta property="og:image" content="http://steffan.cn/images/0608/2_11_wiki.png">
 <meta property="og:image" content="http://steffan.cn/images/0608/2_12_source.png">
-<meta property="og:updated_time" content="2016-11-18T09:06:20.825Z">
+<meta property="og:updated_time" content="2017-02-10T06:38:47.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小白搭博客三部曲之二：部署github+自定义主题+更新博文">
 <meta name="twitter:description" content="0x01 前记感觉好羞耻，弄了一个博客，水了一篇文章之后，就没有然后了。在这里鄙视一下自己，年轻人嘛，还是要稍微积极阳光一点的。好了，我开始说废话了==、看官轻喷，感谢！atool的占位图竟然挂了，disappointed跟某位大神学到了一招，选什么配图，那么鬼麻烦，逼死选择困难症晚期。。。">
@@ -332,8 +332,8 @@
 <h3 id="很好，你生-出-成了一个仓库，复制HTTPS-SSH-地址就好了。"><a href="#很好，你生-出-成了一个仓库，复制HTTPS-SSH-地址就好了。" class="headerlink" title="很好，你生(出)成了一个仓库，复制HTTPS/SSH 地址就好了。"></a>很好，你生(出)成了一个仓库，复制HTTPS/SSH 地址就好了。</h3><p><img src="/images/0608/2_3_DoneRepository.png" alt="DoneRepository"></p>
 <h3 id="编辑yml文件-可以手动去找、编辑，也可以用vim命令"><a href="#编辑yml文件-可以手动去找、编辑，也可以用vim命令" class="headerlink" title="编辑yml文件(可以手动去找、编辑，也可以用vim命令)"></a>编辑yml文件(可以手动去找、编辑，也可以用vim命令)</h3><p>因为等到要预览博客，所以仓库名改成errorlife.github.io。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/errorlife/errorlife.github.io.git</div></pre></td></tr></table></figure></p>
 <h3 id="这里show两次错误："><a href="#这里show两次错误：" class="headerlink" title="这里show两次错误："></a>这里show两次错误：</h3><p><img src="/images/0608/2_5_vim_error.png" alt="vim_error1"><br>错误原因：<br>  代码拼写错了，可以复制上面的代码，然后把repo的value改成上一步复制的地址就可以了。<br><img src="/images/0608/2_6_vim_error2.png" alt="vim_error2"><br>错误原因：<br>  检查原来的yml有没有deploy这个配置，如果重复就会如此。</p>
-<h3 id="更多问题可以去看官方的文档。"><a href="#更多问题可以去看官方的文档。" class="headerlink" title="更多问题可以去看官方的文档。"></a>更多问题可以去看官方的文档。</h3><h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo -d</div></pre></td></tr></table></figure>
-<p>-d中的就是deploy的意思，要正确输入账号密码，才可以部署。<br>如果有错误，你可以尝试先hexo -g，生成后再hexo -d。<br>如果你看到以下的提示(一大堆create)，证明你成功了。<br><img src="/images/0608/2_7_success.png" alt="git_success"></p>
+<h3 id="更多问题可以去看官方的文档。"><a href="#更多问题可以去看官方的文档。" class="headerlink" title="更多问题可以去看官方的文档。"></a>更多问题可以去看官方的文档。</h3><h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure>
+<p>d的就是deploy的意思，要正确输入账号密码，才可以部署。<br>如果有错误，你可以尝试先hexo g，生成后再hexo d。<br>如果你看到以下的提示(一大堆create)，证明你成功了。<br><img src="/images/0608/2_7_success.png" alt="git_success"></p>
 <h3 id="打开浏览器，到对应的仓库，看看最新的提交。如图："><a href="#打开浏览器，到对应的仓库，看看最新的提交。如图：" class="headerlink" title="打开浏览器，到对应的仓库，看看最新的提交。如图："></a>打开浏览器，到对应的仓库，看看最新的提交。如图：</h3><p><img src="/images/0608/2_8_success.png" alt="github_success"></p>
 <h3 id="访问自己的github二级域名——用户名-github-io，例如我的是errorlife-github-io，来个效果图。"><a href="#访问自己的github二级域名——用户名-github-io，例如我的是errorlife-github-io，来个效果图。" class="headerlink" title="访问自己的github二级域名——用户名+github.io，例如我的是errorlife.github.io，来个效果图。"></a>访问自己的github二级域名——用户名+github.io，例如我的是<a href="http://errorlife.github.io/" target="_blank" rel="external">errorlife.github.io</a>，来个效果图。</h3><h3 id="Before"><a href="#Before" class="headerlink" title="Before: "></a>Before: <img src="/images/0608/2_9_before.png" alt="Before"></h3><p>404！！！什么鬼！！！</p>
 <h3 id="After"><a href="#After" class="headerlink" title="After: "></a>After: <img src="/images/0608/2_10_blog.png" alt="After"></h3><p>Duang！Duang！Duang！</p>
@@ -343,8 +343,8 @@
 <p>菜单显示 about 链接，在主题的 _configy.yml 设置中将 menu 中 about 前面的注释去掉即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">home: /</div><div class="line">archives: /archives</div><div class="line">tags: /tags</div><div class="line">about: /about</div></pre></td></tr></table></figure></p>
 <p>来源：<a href="https://github.com/iissnan/hexo-theme-next/wiki" target="_blank" rel="external">Github上的主题的Wiki区域</a><br>多余的轮子就没有必要照搬了，没多大意义。<br>这么多功能你觉得够吗？(不够可以DIY哦，因为自身没有去做，就不多做介绍了)<br><img src="/images/0608/2_11_wiki.png" alt="wiki展示"><br>温馨提示：里面很详细，也很全面，照着wiki做，有错误Issues找或者提问，解决了就顺便帮别人解决一下，也很nice呢。</p>
 <h2 id="0x04更新博文"><a href="#0x04更新博文" class="headerlink" title="0x04更新博文"></a>0x04更新博文</h2><h3 id="那么问题来了，那么多目录我怎么知道是在哪里更新呢。"><a href="#那么问题来了，那么多目录我怎么知道是在哪里更新呢。" class="headerlink" title="那么问题来了，那么多目录我怎么知道是在哪里更新呢。"></a>那么问题来了，那么多目录我怎么知道是在哪里更新呢。</h3><p>Hexo根据Source目录中的源文件生成Public，所以将你的.md/png/…放在Source目录吧<br><img src="/images/0608/2_12_source.png" alt="Source目录"><br>多说几句，那些about,tags都是要自己手动建的哦！</p>
-<h3 id="生成并部署"><a href="#生成并部署" class="headerlink" title="生成并部署"></a>生成并部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo -g</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo -d</div></pre></td></tr></table></figure>
+<h3 id="生成并部署"><a href="#生成并部署" class="headerlink" title="生成并部署"></a>生成并部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d</div></pre></td></tr></table></figure>
 <p>接下来的步骤同上。</p>
 <h2 id="0x05-后记"><a href="#0x05-后记" class="headerlink" title="0x05 后记"></a>0x05 后记</h2><p>两个月更新一篇。好羞耻啊。对不起大家(假装有很多读者的感觉，哈哈哈！)~~~。</p>
 <h3 id="小白搭博客三部曲之三预告片："><a href="#小白搭博客三部曲之三预告片：" class="headerlink" title="小白搭博客三部曲之三预告片："></a>小白搭博客三部曲之三预告片：</h3><blockquote>
@@ -466,7 +466,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
